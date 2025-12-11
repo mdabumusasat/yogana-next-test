@@ -1032,16 +1032,8 @@ Scroll To Top style
           animation: ripple 3s infinite;
 }
 .play-now .ripple.light,
-.play-now .ripple:before.light,
-.play-now .ripple:after.light {
-  -webkit-box-shadow: 0 0 0 0 rgb(255, 255, 255);
-          box-shadow: 0 0 0 0 rgb(255, 255, 255);
-}
-.play-now .ripple.light:before, .play-now .ripple.light:after,
-.play-now .ripple:before.light:before,
-.play-now .ripple:before.light:after,
-.play-now .ripple:after.light:before,
-.play-now .ripple:after.light:after {
+.play-now .ripple.light:before,
+.play-now .ripple.light:after {
   -webkit-box-shadow: 0 0 0 0 rgb(255, 255, 255);
           box-shadow: 0 0 0 0 rgb(255, 255, 255);
 }
