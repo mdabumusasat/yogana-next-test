@@ -19,7 +19,7 @@ function Professional() {
                     <img src="/assets/images/icon/user-icon-6.1.svg" alt="" />
                   </li>
                   <li className="info">
-                    <h3 className="title"><span className="count"><CounterUp end="20" /></span>k+</h3>
+                    <h3 className="title"><span className="count"><CounterUp end={20} /></span>k+</h3>
                     <div className="text">Happy User</div>
                   </li>
                 </ul>
@@ -28,7 +28,7 @@ function Professional() {
                     <img src="/assets/images/icon/badge-icon-6.1.svg" alt="" />
                   </li>
                   <li className="info">
-                    <h3 className="title"><span className="count"><CounterUp end="100" /></span>+</h3>
+                    <h3 className="title"><span className="count"><CounterUp end={100} /></span>+</h3>
                     <div className="text">Award Winer</div>
                   </li>
                 </ul>

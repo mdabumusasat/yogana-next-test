@@ -20,21 +20,21 @@ function Funfact() {
               <div className="col-sm-4">
                 <div className="funfact-block-four border-0">
                   <img src="/assets/images/shape/funface-four-shape.png" alt="Image" />
-                  <h2 className="title"><CounterUp end="90" />%</h2>
+                  <h2 className="title"><CounterUp end={90} />%</h2>
                   <h5 className="sub-title">Clients Satisfactions</h5>
                 </div>
               </div>
               <div className="col-sm-4">
                 <div className="funfact-block-four">
                   <img src="/assets/images/shape/funface-four-shape.png" alt="Image" />
-                  <h2 className="title"><CounterUp end="40" />%</h2>
+                  <h2 className="title"><CounterUp end={40} />%</h2>
                   <h5 className="sub-title">Decrease Expense</h5>
                 </div>
               </div>
               <div className="col-sm-4">
                 <div className="funfact-block-four">
                   <img src="/assets/images/shape/funface-four-shape.png" alt="Image" />
-                  <h2 className="title"><CounterUp end="7" />M</h2>
+                  <h2 className="title"><CounterUp end={7} />M</h2>
                   <h5 className="sub-title">Money Flow Users</h5>
                 </div>
               </div>
