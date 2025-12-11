@@ -1,19 +1,17 @@
-"use client"; // REQUIRED for Next.js client components
+"use client";
 
-import React, { useEffect, useState, useRef } from "react";
-import PropTypes from "prop-types";
+import { useEffect, useState, useRef } from "react";
 
-// Shared observer for all components
-const observers = new WeakMap(); // Map element -> callback
-
-let sharedObserver;
+// Shared observer (singleton)
+let sharedObserver: IntersectionObserver | null = null;
+const observerCallbacks = new WeakMap<Element, (visible: boolean) => void>();
 
 function getSharedObserver() {
   if (!sharedObserver) {
     sharedObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          const cb = observers.get(entry.target);
+          const cb = observerCallbacks.get(entry.target);
           if (cb) cb(entry.isIntersecting);
         });
       },
@@ -23,8 +21,8 @@ function getSharedObserver() {
   return sharedObserver;
 }
 
-// Hook to detect visibility using shared observer
-function useSharedVisibility(ref) {
+// Reusable visibility hook
+function useSharedVisibility(ref: React.RefObject<HTMLElement>) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -32,20 +30,26 @@ function useSharedVisibility(ref) {
     if (!element) return;
 
     const observer = getSharedObserver();
-    observers.set(element, setIsVisible);
+    observerCallbacks.set(element, setIsVisible);
     observer.observe(element);
 
     return () => {
       observer.unobserve(element);
-      observers.delete(element);
+      observerCallbacks.delete(element);
     };
   }, [ref]);
 
   return isVisible;
 }
 
-function CounterUp({ end, duration = 2000 }) {
-  const ref = useRef();
+export default function CounterUp({
+  end,
+  duration = 2000,
+}: {
+  end: number;
+  duration?: number;
+}) {
+  const ref = useRef<HTMLSpanElement>(null);
   const isVisible = useSharedVisibility(ref);
   const [count, setCount] = useState(0);
 
@@ -54,29 +58,23 @@ function CounterUp({ end, duration = 2000 }) {
 
     let start = 0;
     const increment = end / (duration / 16); // ~60fps
-    let frame;
+    let frameID: number;
 
     const animate = () => {
       start += increment;
+
       if (start < end) {
         setCount(Math.floor(start));
-        frame = requestAnimationFrame(animate);
+        frameID = requestAnimationFrame(animate);
       } else {
         setCount(end);
       }
     };
 
-    frame = requestAnimationFrame(animate);
+    frameID = requestAnimationFrame(animate);
 
-    return () => cancelAnimationFrame(frame);
+    return () => cancelAnimationFrame(frameID);
   }, [isVisible, end, duration]);
 
   return <span ref={ref}>{count}</span>;
 }
-
-CounterUp.propTypes = {
-  end: PropTypes.number.isRequired,
-  duration: PropTypes.number,
-};
-
-export default CounterUp;
