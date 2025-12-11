@@ -1,0 +1,326 @@
+/*** 
+
+====================================================================
+    Fun Fact Section
+====================================================================
+
+***/
+
+.fun-fact-section {
+  position: relative;
+  padding: 90px 0 120px;
+  .bg-image-two {
+    width: 100%;
+    height: 69px;
+    bottom: 0;
+    left: 0;
+    top: auto;
+  }
+  .feature1-2 {
+    background-image: url(/public/assets/images/resource/feature1-2.png);
+    position: absolute;
+    width: 285px;
+    height: 344px;
+    bottom: 37px;
+    right: 0;
+    @include media-breakpoint-down(md){
+      display: none;
+    }
+  }
+}
+
+//Counter BLock
+.counter-block {
+  position: relative;
+  @include media-breakpoint-down(lg){
+    margin-bottom: 40px;
+  }
+  .inner {
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &:hover {
+      .icon {
+        img {
+          transform: scale(-1) rotate(180deg);
+        }
+      }
+      .counter-title {
+        opacity: 1;
+      }
+    }
+  }
+  .icon {
+    background-color: var(--theme-color1);
+    border-radius: 50%;
+    position: relative;
+    height: 100px;
+    width: 100px;
+    line-height: 96px;
+    margin-bottom: 35px;
+    img {
+      position: relative;
+      @include transition(all 300ms ease);
+    }
+  }
+  .count-box {
+    position: relative;
+    display: block;
+    font-size: 60px;
+    font-weight: 600;
+    .count-text {
+      color: var(--headings-color);
+      font-size: 80px;
+      font-weight: 500;
+      font-family: var(--title-font);
+    }
+  }
+  .counter-title {
+    display: block;
+    font-size: 22px;
+    color: var(--headings-color);
+    font-weight: 500;
+    margin-bottom: 0;
+    margin-top: 43px;
+  }
+}
+
+/*** 
+
+====================================================================
+    Fun Fact Section Two
+====================================================================
+
+***/
+
+.fun-fact-section-two {
+  background-color: var(--theme-color5);
+  [data-tm-layout="dark"] & {
+    background-color: var(--dark-color1);
+  }
+  position: relative;
+  padding: 90px 0 120px;
+  &.pull-down {
+    margin-bottom: -96px;
+  }
+  .outer-box {
+    background-color: #F9F3F0;
+    [data-tm-layout="dark"] & {
+      background-color: var(--dark-color1);
+    }
+    border-radius: 10px;
+    border: 6px solid var(--theme-color-light);
+    padding: 46px 60px 48px;
+    position: relative;
+    margin-bottom: -100px;
+    z-index: 1;
+    @include media-breakpoint-down(lg){
+      padding: 46px 60px 18px;
+    }
+    @include media-breakpoint-down(sm){
+      padding: 46px 20px 10px;
+    }
+  }
+}
+
+//Counter BLock
+.counter-block-two {
+  position: relative;
+  @include media-breakpoint-down(lg){
+    margin-bottom: 40px;
+  }
+  .inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    &:hover {
+      .icon {
+        img {
+          transform: scale(-1) rotate(180deg);
+        }
+      }
+      .counter-title {
+        opacity: 1;
+      }
+    }
+  }
+  .icon {
+    font-size: 64px;
+    position: relative;
+    line-height: 1;
+    margin-bottom: 12px;
+    text-align: center;
+    min-width: 60px;
+    @include media-breakpoint-down(sm){
+      max-width: 60px;
+    }
+    img {
+      position: relative;
+      @include transition(all 300ms ease);
+    }
+  }
+  .inner-content {
+    padding-left: 17px;
+  }
+  .count-box {
+    position: relative;
+    display: block;
+    color: var(--headings-color);
+    font-size: 64px;
+    font-weight: 600;
+    font-family: var(--text-font);
+    line-height: 1;
+    @include media-breakpoint-down(xl){
+      font-size: 42px;
+    }
+    .count-text {
+      color: var(--headings-color);
+      font-size: 64px;
+      font-weight: 600;
+      font-family: var(--text-font);
+      @include media-breakpoint-down(xl){
+        font-size: 42px;
+      }
+    }
+  }
+  .counter-title {
+    display: block;
+    margin-bottom: 0;
+    margin-top: 4px;
+  }
+}
+
+
+/*** 
+
+====================================================================
+    Funfact Sectiom Three
+====================================================================
+
+***/
+
+.funfact-section-three{
+  padding: 37px 0 96px;
+  position: relative;
+  background-color: var(--theme-color-light);
+}
+.counter-block-three {
+  &:last-child {
+    .inner-box {
+      &:before {
+        display: none;
+      }
+    }
+  }
+  .inner-box {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    @include media-breakpoint-down(md){
+      margin-bottom: 30px;
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      height: 87px;
+      width: 1px;
+      right: -30px;
+      background-color: var(--theme-color1);
+      bottom: 25px;
+    }
+    .count-box {
+      color: rgba(194, 167, 78, 0.2);
+      display: block;
+      font-family: var(--title-font);
+      font-size: 200px;
+      font-weight: 400;
+      position: relative;
+      margin-bottom: 0;
+      line-height: 1;
+      @include media-breakpoint-down(sm){
+        font-size: 110px;
+      }
+    }
+    .counter-text {
+      color: #000000;
+      font-family: var(--title-font);
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 30px;
+      margin-bottom: 0;
+      position: absolute;
+      top: calc(50% - 5px);
+      right: 0;
+      @include media-breakpoint-down(md){
+        position: relative;
+      }
+      @include media-breakpoint-down(sm){
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+
+/*** 
+
+====================================================================
+    Funfact Sectiom Four
+====================================================================
+
+***/
+
+.funfact-section-four{
+  padding: 120px 0;
+  position: relative;
+}
+.counter-block-four {
+  .inner-box {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    @include media-breakpoint-down(md){
+      margin-bottom: 30px;
+    }
+    .count-box {
+      color: rgba(194, 167, 78, 0.2);
+      display: block;
+      font-family: 'Cormorant';
+      font-size: 200px;
+      font-weight: 400;
+      line-height: 1;
+      position: relative;
+      margin-bottom: 0;
+      @include media-breakpoint-down(sm){
+        font-size: 110px;
+      }
+    }
+    .counter-text {
+      color: #000000;
+      [data-tm-layout="dark"] & {
+        color: var(--headings-color);
+      }
+      font-family: 'Cormorant';
+      font-size: 30px;
+      font-weight: 600;
+      line-height: 38px;
+      margin-bottom: 0;
+      position: absolute;
+      top: 40%;
+      right: 0;
+      @include media-breakpoint-down(md){
+        position: relative;
+      }
+      @include media-breakpoint-down(sm){
+        font-size: 18px;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,1 @@
+export const SITE_NAME = "Yogana | Yoga Fitness React Next JS Template";
